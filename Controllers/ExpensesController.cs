@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dashboard.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,10 @@ namespace Dashboard.Controllers
 {
     public class ExpensesController : Controller
     {
-        public ExpensesController()
+        private DashboardContext _context;
+        public ExpensesController(DashboardContext context)
         {
-
+            _context = context;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dashboard.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,57 @@ namespace Dashboard.Controllers
 {
     public class UsersController : Controller
     {
-        public UsersController()
+        private DashboardContext _context;
+        public UsersController(DashboardContext context)
+        {
+            _context = context;
+        }
+        [HttpGet("login")]
+        public IActionResult LoginPage()
+        {
+            return View();
+        }
+        [HttpGet("register")]
+        public IActionResult RegisterPage()
+        {
+            return View();
+        }
+        [HttpPost("login")]
+        public IActionResult Login(LoginUser login)
         {
 
+        }
+        [HttpPost("register")]
+        public IActionResult Register(RegisterUser register)
+        {
+            User CheckEmail = _context.Users
+                .Where(u => u.Email == register.Email)
+                .SingleOrDefault();
+            if (CheckEmail != null)
+            {
+                ViewBag.errors = "That email already exists";
+                return RedirectToAction("Register");
+            }
+            if (ModelState.IsValid)
+            {
+                PasswordHasher<RegisterUser> Hasher = new PasswordHasher<RegisterUser>();
+                User newUser = new User
+                {
+                    UserId = register.UserId,
+                    FirstName = register.FirstName,
+                    LastName = register.LastName,
+                    Email = register.Email,
+                    Password = Hasher.HashPassword(register, register.Password)
+                };
+                _context.Add(newUser);
+                _context.SaveChanges();
+                ViewBag.success = "Successfully registered";
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                return View("Register");
+            }
         }
     }
 }
