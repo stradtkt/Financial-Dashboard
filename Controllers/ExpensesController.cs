@@ -14,5 +14,11 @@ namespace Dashboard.Controllers
         {
             _context = context;
         }
+        [HttpGet("Dashboard")]
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
     }
 }

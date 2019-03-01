@@ -1,4 +1,5 @@
 ﻿using Dashboard.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -28,7 +29,28 @@ namespace Dashboard.Controllers
         [HttpPost("login")]
         public IActionResult Login(LoginUser login)
         {
-
+            User CheckEmail = _context.Users
+               .SingleOrDefault(u => u.Email == login.Email);
+            if (CheckEmail != null)
+            {
+                var Hasher = new PasswordHasher<User>();
+                if (0 != Hasher.VerifyHashedPassword(CheckEmail, CheckEmail.Password, login.Password))
+                {
+                    HttpContext.Session.SetInt32("UserId", CheckEmail.UserId);
+                    HttpContext.Session.SetString("FirstName", CheckEmail.FirstName);
+                    return RedirectToAction("Dashboard", "Expenses");
+                }
+                else
+                {
+                    ViewBag.errors = "Incorrect Password";
+                    return View("Register");
+                }
+            }
+            else
+            {
+                ViewBag.errors = "Email not registered";
+                return View("Register");
+            }
         }
         [HttpPost("register")]
         public IActionResult Register(RegisterUser register)
