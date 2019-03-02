@@ -30,3 +30,4 @@ C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Dashboar
 C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Expenses\Dashboard.g.cshtml.cs
 C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Users\LoginPage.g.cshtml.cs
 C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Users\RegisterPage.g.cshtml.cs
+C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Expenses\Profile.g.cshtml.cs

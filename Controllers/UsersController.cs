@@ -84,5 +84,11 @@ namespace Dashboard.Controllers
                 return View("Register");
             }
         }
+        [HttpGet("logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
