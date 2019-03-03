@@ -31,3 +31,5 @@ C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Vi
 C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Users\LoginPage.g.cshtml.cs
 C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Users\RegisterPage.g.cshtml.cs
 C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Expenses\Profile.g.cshtml.cs
+C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Expenses\ExpensesAdd.g.cshtml.cs
+C:\Users\Kevin\source\repos\Dashboard\Dashboard\obj\Debug\netcoreapp2.1\Razor\Views\Expenses\ExpensesAll.g.cshtml.cs

@@ -64,7 +64,7 @@ using Dashboard.Models;
 						");
             EndContext();
             BeginContext(334, 2685, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5497ed850bf846deab22f2821aadaad7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd1cb00d348d47948ad288fafe90b6f8", async() => {
                 BeginContext(340, 2672, true);
                 WriteLiteral(@"
 							<div class=""row"">

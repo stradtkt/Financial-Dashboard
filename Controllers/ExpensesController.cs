@@ -42,5 +42,36 @@ namespace Dashboard.Controllers
             ViewBag.TheUser = ActiveUser;
             return View();
         }
+        [HttpPost("expenses/new")]
+        public IActionResult ExpensesNew(Expenses expenses)
+        {
+            if (ModelState.IsValid)
+            {
+                Expenses newExpense = new Expenses()
+                {
+                    UserId = ActiveUser.UserId,
+                    ExpenseId = expenses.ExpenseId,
+                    Item = expenses.Item,
+                    Cost = expenses.Cost
+                };
+                _context.Add(newExpense);
+                _context.SaveChanges();
+                return RedirectToAction("Expenses");
+            }
+            else
+            {
+                return RedirectToAction("ExpensesAdd");
+            }
+        }
+        [HttpGet("expenses")]
+        public IActionResult ExpensesAll()
+        {
+            return View();
+        }
+        [HttpGet("expenses/add")]
+        public IActionResult ExpensesAdd()
+        {
+            return View();
+        }
     }
 }
